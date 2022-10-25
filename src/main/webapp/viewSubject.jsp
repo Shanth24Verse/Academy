@@ -1,0 +1,42 @@
+<%@page import="persistence.Subject"%>
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.Session"%>
+<%@page import="util.HibernateUtil"%>
+<%@page import="org.hibernate.SessionFactory"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Learner's Academy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<center>
+<a href="index.html">Back to Main Menu</a>&nbsp;&nbsp;
+<a href="addSubject.html">Add Subject</a>&nbsp;&nbsp;
+
+<h1>The Following Subjects are listed</h1>
+<%
+	SessionFactory sf  = HibernateUtil.buildSessionFactory();
+	Session hibernateSession = sf.openSession();
+	List<Subject> subjects = hibernateSession.createQuery("from Subject").list();
+%>
+<table>
+<tr>
+<th>Subject Name </th>
+</tr>
+	<%		
+		for(Subject subject : subjects){
+			out.print("<tr>");	
+			out.print("<td>" + subject.getName() + "</td>");
+			out.print("</tr>");	
+		}
+	%>
+</table>
+
+
+</center>
+</body>
+</html>

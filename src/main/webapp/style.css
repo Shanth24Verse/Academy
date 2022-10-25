@@ -1,0 +1,37 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: LightGray;
+	margin-top:5%;
+	font-family:Georgia;
+	}
+
+
+h1{
+	margin-bottom:2%;
+}
+
+
+
+table{
+  border-collapse: collapse;
+
+}
+
+td{
+	padding:25px 50px 25px 50px;
+	border: 1px solid #ddd;
+}
+
+a:link, a:visited {
+  background-color: #505050;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: black;
+}
